@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlainTextComponent } from './plain-text.component';
+import { PlainTextScreen } from './plain-text.screen';
 
 describe('PlainTextComponent', () => {
-  let component: PlainTextComponent;
-  let fixture: ComponentFixture<PlainTextComponent>;
+  let component: PlainTextScreen;
+  let fixture: ComponentFixture<PlainTextScreen>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlainTextComponent ]
-    })
-    .compileComponents();
+      declarations: [PlainTextScreen],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlainTextComponent);
+    fixture = TestBed.createComponent(PlainTextScreen);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
