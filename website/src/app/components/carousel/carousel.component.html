@@ -9,18 +9,15 @@
       alt=""
     />
     <button
-      *ngIf="menu[menuOption].url"
-      (click)="onButtonClick()"
-      class="primary-button"
+      *ngFor="let button of menu[menuOption].buttons"
+      (click)="onButtonClick(button)"
+      [ngClass]="
+        button.type === buttonType.PRIMARY
+          ? 'primary-button'
+          : 'secondary-button'
+      "
     >
-      {{ menu[menuOption].title }}
-    </button>
-    <button
-      *ngIf="menu[menuOption].url"
-      (click)="onButtonClick()"
-      class="secondary-button"
-    >
-      {{ menu[menuOption].title }}
+      {{ button.text }}
     </button>
   </div>
 

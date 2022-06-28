@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
 
 export interface CarouselOption {
-  title: string;
+  title?: string;
   image: string;
-  url: string;
-  internalUrl: boolean;
+  buttons: Button[];
 }
 
 @Component({
@@ -16,6 +16,7 @@ export interface CarouselOption {
 export class CarouselComponent implements OnInit {
   @Input() menu = [] as CarouselOption[];
 
+  buttonType = ButtonType;
   menuOption = 0;
 
   constructor(private router: Router) {}
@@ -34,11 +35,11 @@ export class CarouselComponent implements OnInit {
     this.menuOption = goForward ? this.menuOption + 1 : this.menuOption - 1;
   }
 
-  onButtonClick() {
-    if (this.menu[this.menuOption].internalUrl) {
-      this.router.navigate([this.menu[this.menuOption].url]);
+  onButtonClick(button: Button) {
+    if (button.internalUrl) {
+      this.router.navigate([button.url]);
     } else {
-      window.open(this.menu[this.menuOption].url, '_blank');
+      window.open(button.url, '_blank');
     }
   }
 }

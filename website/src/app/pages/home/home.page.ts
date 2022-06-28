@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
+import { ButtonType } from 'src/app/interfaces/widgets.interface';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +10,39 @@ import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 export class HomePage implements OnInit {
   menu: CarouselOption[] = [
     {
-      title: 'View our Projects',
       image: '../../../assets/projects-image.jpg',
-      url: '/projects',
-      internalUrl: true,
+      buttons: [
+        {
+          text: 'View our Projects',
+          type: ButtonType.PRIMARY,
+          url: '/projects',
+          internalUrl: true,
+        },
+      ],
     },
     {
       title: 'Learn about us',
       image: '../../../assets/about-us-image.jpg',
-      url: '/about',
-      internalUrl: true,
+      buttons: [
+        {
+          text: 'Learn about us',
+          type: ButtonType.PRIMARY,
+          url: '/about',
+          internalUrl: true,
+        },
+      ],
     },
     {
       title: 'Get in touch',
       image: '../../../assets/contact-us-image.jpg',
-      url: '/contact',
-      internalUrl: true,
+      buttons: [
+        {
+          text: 'Get in touch',
+          type: ButtonType.PRIMARY,
+          url: '/contact',
+          internalUrl: true,
+        },
+      ],
     },
   ];
 
