@@ -14,7 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutUsScreen } from './pages/about-us/about-us.screen';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ContactUsScreen } from './pages/contact-us/contact-us.screen';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
     ProjectsComponent,
     CarouselComponent,
     AboutUsScreen,
-    ContactUsComponent,
+    ContactUsScreen,
   ],
   imports: [
     BrowserModule,
