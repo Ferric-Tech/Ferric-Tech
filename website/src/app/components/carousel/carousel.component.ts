@@ -5,6 +5,7 @@ export interface CarouselOption {
   title: string;
   image: string;
   url: string;
+  internalUrl: boolean;
 }
 
 @Component({
@@ -34,6 +35,10 @@ export class CarouselComponent implements OnInit {
   }
 
   onButtonClick() {
-    this.router.navigate([this.menu[this.menuOption].url]); // define your component where you want to go
+    if (this.menu[this.menuOption].internalUrl) {
+      this.router.navigate([this.menu[this.menuOption].url]);
+    } else {
+      window.open(this.menu[this.menuOption].url, '_blank');
+    }
   }
 }

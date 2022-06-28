@@ -9,6 +9,7 @@
       alt=""
     />
     <button
+      *ngIf="menu[menuOption].url"
       (click)="onButtonClick()"
       class="carousel-button"
       mat-button

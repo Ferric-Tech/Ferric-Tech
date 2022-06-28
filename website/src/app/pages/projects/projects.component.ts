@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 
 @Component({
   selector: 'app-projects',
@@ -6,7 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-  menu = ['Negocio', 'myDayGoal', 'e-Questrian'];
+  menu: CarouselOption[] = [
+    {
+      title: 'Go to myDayGoal',
+      image: '../../../assets/myDayGoal-logo.png',
+      url: 'https://mydaygoal.firebaseapp.com/',
+      internalUrl: false,
+    },
+    {
+      title: 'Go to e-Questrian',
+      image: '../../../assets/equestrian-logo.png',
+      url: '',
+      internalUrl: false,
+    },
+    {
+      title: 'Go to Negocio',
+      image: '../../../assets/negocio-logo.jpeg',
+      url: 'https://negocio-3df71.firebaseapp.com/',
+      internalUrl: false,
+    },
+  ];
   menuOption = 0;
 
   constructor() {}
