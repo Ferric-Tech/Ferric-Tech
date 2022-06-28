@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { HomeScreen } from './pages/home/home.screen';
 import { ProjectsScreen } from './pages/projects/projects.screen';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { AboutUsScreen } from './pages/about-us/about-us.screen';
+import { AboutUsPage } from './pages/about-us/about-us.page';
 import { ContactUsScreen } from './pages/contact-us/contact-us.screen';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { ContactUsScreen } from './pages/contact-us/contact-us.screen';
     HomeScreen,
     ProjectsScreen,
     CarouselComponent,
-    AboutUsScreen,
+    AboutUsPage,
     ContactUsScreen,
   ],
   imports: [
