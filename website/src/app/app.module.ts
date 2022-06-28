@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 // Components
 import { AppComponent } from './app.component';
-import { HomeScreen } from './pages/home/home.screen';
+import { HomePage } from './pages/home/home.page';
 import { ProjectsScreen } from './pages/projects/projects.screen';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutUsPage } from './pages/about-us/about-us.page';
@@ -19,7 +19,7 @@ import { ContactUsPage } from './pages/contact-us/contact-us.page';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeScreen,
+    HomePage,
     ProjectsScreen,
     CarouselComponent,
     AboutUsPage,
