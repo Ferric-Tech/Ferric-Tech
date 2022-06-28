@@ -7,14 +7,32 @@
   justify-content: center;
 }
 
-.menu-title {
-  display: flex;
-  justify-content: center;
-  width: 40%;
-}
-
 .menu-carousel-arrow-container {
   display: flex;
   flex-grow: 1;
   justify-content: center;
+}
+
+.carousel-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.carousel-image-container {
+  display: flex;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: large;
+  font-weight: bold;
 }

@@ -2,9 +2,16 @@
   <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(false)"
     >keyboard_arrow_left</mat-icon
   >
-  <p class="menu-title">{{ menu[menuOption].title }}</p>
+  <div class="carousel-content-container">
+    <img
+      class="carousel-image-container"
+      [src]="menu[menuOption].image"
+      alt=""
+    />
+    <p class="menu-title">{{ menu[menuOption].title }}</p>
+  </div>
+
   <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(true)"
     >keyboard_arrow_right</mat-icon
   >
 </div>
-<div class="footer-container"></div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export interface CarouselOption {
   title: string;
+  image: string;
 }
 
 @Component({
