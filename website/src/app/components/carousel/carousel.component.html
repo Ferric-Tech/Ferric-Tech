@@ -8,17 +8,19 @@
       [src]="menu[menuOption].image"
       alt=""
     />
-    <button
-      *ngFor="let button of menu[menuOption].buttons"
-      (click)="onButtonClick(button)"
-      [ngClass]="
-        button.type === buttonType.PRIMARY
-          ? 'primary-button'
-          : 'secondary-button'
-      "
-    >
-      {{ button.text }}
-    </button>
+    <div *ngFor="let button of menu[menuOption].buttons">
+      <button
+        *ngIf="button.url || button.internalUrl"
+        (click)="onButtonClick(button)"
+        [ngClass]="
+          button.type === buttonType.PRIMARY
+            ? 'primary-button'
+            : 'secondary-button'
+        "
+      >
+        {{ button.text }}
+      </button>
+    </div>
   </div>
 
   <mat-icon class="menu-carousel-arrow-container" (click)="onArrowClick(true)"
