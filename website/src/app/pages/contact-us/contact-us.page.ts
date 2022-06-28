@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ButtonType } from 'src/app/interfaces/widgets.interface';
+import { FormScreenConfig } from 'src/app/screens/form/form.screen';
 
 @Component({
   selector: 'app-contact-us',
@@ -6,7 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-us.page.scss'],
 })
 export class ContactUsPage implements OnInit {
+  screenConfig = {} as FormScreenConfig;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.screenConfig = {} as FormScreenConfig;
+    this.setScreenTile();
+    this.setScreenButtons();
+  }
+
+  private setScreenTile() {
+    this.screenConfig.screenTitle = 'Contact us';
+  }
+
+  private setScreenButtons() {
+    this.screenConfig.buttons = [
+      {
+        type: ButtonType.SECONDARY,
+        text: 'Back to Home Page',
+        url: '',
+        internalUrl: true,
+      },
+    ];
+  }
 }

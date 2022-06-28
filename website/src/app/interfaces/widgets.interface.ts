@@ -9,3 +9,5 @@ export interface Button {
   url?: string;
   internalUrl: boolean;
 }
+
+export interface FormLine {}
