@@ -15,6 +15,7 @@ import { ProjectsPage } from './pages/projects/projects.page';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutUsPage } from './pages/about-us/about-us.page';
 import { ContactUsPage } from './pages/contact-us/contact-us.page';
+import { PlainTextComponent } from './screens/plain-text/plain-text.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ContactUsPage } from './pages/contact-us/contact-us.page';
     CarouselComponent,
     AboutUsPage,
     ContactUsPage,
+    PlainTextComponent,
   ],
   imports: [
     BrowserModule,
