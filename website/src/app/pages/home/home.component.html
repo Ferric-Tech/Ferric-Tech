@@ -3,9 +3,13 @@
     <p class="title-font">Welcome to Ferric Tech</p>
   </div>
   <div class="menu-carosel-container">
-    <p class="menu-carosel-arrow-container" (click)="arrowClicked(false)">/</p>
+    <mat-icon class="menu-carosel-arrow-container" (click)="arrowClicked(false)"
+      >keyboard_arrow_left</mat-icon
+    >
     <p class="menu-title">{{ menu[menuOption] }}</p>
-    <p class="menu-carosel-arrow-container" (click)="arrowClicked(true)">\</p>
+    <mat-icon class="menu-carosel-arrow-container" (click)="arrowClicked(true)"
+      >keyboard_arrow_right</mat-icon
+    >
   </div>
   <div class="footer-container"></div>
 </div>
