@@ -3,10 +3,10 @@ import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
+  templateUrl: './projects.screen.html',
+  styleUrls: ['./projects.screen.scss'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsScreen implements OnInit {
   menu: CarouselOption[] = [
     {
       title: 'Go to myDayGoal',

@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 // Components
 import { AppComponent } from './app.component';
 import { HomeScreen } from './pages/home/home.screen';
-import { ProjectsComponent } from './pages/projects/projects.component';
+import { ProjectsScreen } from './pages/projects/projects.screen';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutUsScreen } from './pages/about-us/about-us.screen';
 import { ContactUsScreen } from './pages/contact-us/contact-us.screen';
@@ -20,7 +20,7 @@ import { ContactUsScreen } from './pages/contact-us/contact-us.screen';
   declarations: [
     AppComponent,
     HomeScreen,
-    ProjectsComponent,
+    ProjectsScreen,
     CarouselComponent,
     AboutUsScreen,
     ContactUsScreen,
