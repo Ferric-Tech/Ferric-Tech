@@ -36,6 +36,7 @@ export class CarouselComponent implements OnInit {
   }
 
   onButtonClick(button: Button) {
+    if (!button.url && !button.internalUrl) return;
     if (button.internalUrl) {
       this.router.navigate([button.url]);
     } else {
