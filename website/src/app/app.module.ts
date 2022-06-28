@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ProjectsComponent,
     CarouselComponent,
     AboutUsComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
