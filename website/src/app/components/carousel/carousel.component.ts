@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface CarouselOption {
   title: string;
   image: string;
+  url: string;
 }
 
 @Component({
@@ -15,11 +17,11 @@ export class CarouselComponent implements OnInit {
 
   menuOption = 0;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  arrowClicked(goForward: boolean) {
+  onArrowClick(goForward: boolean) {
     if (goForward && this.menuOption + 1 === this.menu.length) {
       this.menuOption = 0;
       return;
@@ -29,5 +31,9 @@ export class CarouselComponent implements OnInit {
       return;
     }
     this.menuOption = goForward ? this.menuOption + 1 : this.menuOption - 1;
+  }
+
+  onButtonClick() {
+    this.router.navigate([this.menu[this.menuOption].url]); // define your component where you want to go
   }
 }

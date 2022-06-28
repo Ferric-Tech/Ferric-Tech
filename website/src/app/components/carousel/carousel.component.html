@@ -1,5 +1,5 @@
 <div class="menu-carousel-container">
-  <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(false)"
+  <mat-icon class="menu-carousel-arrow-container" (click)="onArrowClick(false)"
     >keyboard_arrow_left</mat-icon
   >
   <div class="carousel-content-container">
@@ -8,12 +8,17 @@
       [src]="menu[menuOption].image"
       alt=""
     />
-    <button class="carousel-button" mat-button color="primary">
+    <button
+      (click)="onButtonClick()"
+      class="carousel-button"
+      mat-button
+      color="primary"
+    >
       {{ menu[menuOption].title }}
     </button>
   </div>
 
-  <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(true)"
+  <mat-icon class="menu-carousel-arrow-container" (click)="onArrowClick(true)"
     >keyboard_arrow_right</mat-icon
   >
 </div>

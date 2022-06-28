@@ -11,14 +11,17 @@ export class HomeComponent implements OnInit {
     {
       title: 'View our Projects',
       image: '../../../assets/projects-image.jpg',
+      url: '/projects',
     },
     {
       title: 'Learn about us',
       image: '../../../assets/about-us-image.jpg',
+      url: '',
     },
     {
       title: 'Get in touch',
       image: '../../../assets/contact-us-image.jpg',
+      url: '',
     },
   ];
 
