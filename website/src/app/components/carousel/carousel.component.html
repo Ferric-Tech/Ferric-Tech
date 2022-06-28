@@ -5,10 +5,10 @@
   <div class="carousel-content-container">
     <img
       class="carousel-image-container"
-      [src]="menu[menuOption].image"
+      [src]="options[menuOption].image"
       alt=""
     />
-    <div *ngFor="let button of menu[menuOption].buttons">
+    <div *ngFor="let button of options[menuOption].buttons">
       <button
         *ngIf="button.url || button.internalUrl"
         (click)="onButtonClick(button)"

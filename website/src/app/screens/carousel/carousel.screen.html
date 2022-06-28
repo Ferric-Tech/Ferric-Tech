@@ -1,1 +1,18 @@
-<p>carousel.screen works!</p>
+<p class="screen-title-container">{{config.screenTitle}}</p>
+<app-carousel
+  class="menu-carousel-container"
+  [options]="config.carouselOptions"
+></app-carousel>
+<div class="button-container">
+  <button
+    *ngFor="let button of config.buttons"
+    (click)="onButtonClick(button)"
+    [ngClass]="
+  button.type === buttonType.PRIMARY
+    ? 'primary-button'
+    : 'secondary-button'
+"
+  >
+    {{ button.text }}
+  </button>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 import { ButtonType } from 'src/app/interfaces/widgets.interface';
+import { CarouselScreenConfig } from 'src/app/screens/carousel/carousel.screen';
 
 @Component({
   selector: 'app-home',
@@ -8,45 +9,57 @@ import { ButtonType } from 'src/app/interfaces/widgets.interface';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  menu: CarouselOption[] = [
-    {
-      image: '../../../assets/projects-image.jpg',
-      buttons: [
-        {
-          text: 'View our Projects',
-          type: ButtonType.PRIMARY,
-          url: '/projects',
-          internalUrl: true,
-        },
-      ],
-    },
-    {
-      title: 'Learn about us',
-      image: '../../../assets/about-us-image.jpg',
-      buttons: [
-        {
-          text: 'Learn about us',
-          type: ButtonType.PRIMARY,
-          url: '/about',
-          internalUrl: true,
-        },
-      ],
-    },
-    {
-      title: 'Get in touch',
-      image: '../../../assets/contact-us-image.jpg',
-      buttons: [
-        {
-          text: 'Get in touch',
-          type: ButtonType.PRIMARY,
-          url: '/contact',
-          internalUrl: true,
-        },
-      ],
-    },
-  ];
+  screenConfig = {} as CarouselScreenConfig;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.screenConfig = {} as CarouselScreenConfig;
+    this.setScreenTile();
+    this.setCarouselOptions();
+  }
+
+  private setScreenTile() {
+    this.screenConfig.screenTitle = '';
+  }
+
+  private setCarouselOptions() {
+    this.screenConfig.carouselOptions = [
+      {
+        image: '../../../assets/projects-image.jpg',
+        buttons: [
+          {
+            text: 'View our Projects',
+            type: ButtonType.PRIMARY,
+            url: '/projects',
+            internalUrl: true,
+          },
+        ],
+      },
+      {
+        title: 'Learn about us',
+        image: '../../../assets/about-us-image.jpg',
+        buttons: [
+          {
+            text: 'Learn about us',
+            type: ButtonType.PRIMARY,
+            url: '/about',
+            internalUrl: true,
+          },
+        ],
+      },
+      {
+        title: 'Get in touch',
+        image: '../../../assets/contact-us-image.jpg',
+        buttons: [
+          {
+            text: 'Get in touch',
+            type: ButtonType.PRIMARY,
+            url: '/contact',
+            internalUrl: true,
+          },
+        ],
+      },
+    ];
+  }
 }

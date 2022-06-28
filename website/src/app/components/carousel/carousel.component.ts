@@ -14,7 +14,7 @@ export interface CarouselOption {
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  @Input() menu = [] as CarouselOption[];
+  @Input() options = [] as CarouselOption[];
 
   buttonType = ButtonType;
   menuOption = 0;
@@ -24,12 +24,12 @@ export class CarouselComponent implements OnInit {
   ngOnInit(): void {}
 
   onArrowClick(goForward: boolean) {
-    if (goForward && this.menuOption + 1 === this.menu.length) {
+    if (goForward && this.menuOption + 1 === this.options.length) {
       this.menuOption = 0;
       return;
     }
     if (!goForward && this.menuOption === 0) {
-      this.menuOption = this.menu.length - 1;
+      this.menuOption = this.options.length - 1;
       return;
     }
     this.menuOption = goForward ? this.menuOption + 1 : this.menuOption - 1;
