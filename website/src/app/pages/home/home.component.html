@@ -1,13 +1,19 @@
 <div class="page-container">
   <div class="welcome-page-title-container">
-    <p class="title-font">Welcome to Ferric Tech</p>
+    <img
+      class="welcome-page-logo-container"
+      src="../../../assets/ferric-tech-logo.jpg"
+      alt=""
+    />
   </div>
-  <div class="menu-carosel-container">
-    <mat-icon class="menu-carosel-arrow-container" (click)="arrowClicked(false)"
+  <div class="menu-carousel-container">
+    <mat-icon
+      class="menu-carousel-arrow-container"
+      (click)="arrowClicked(false)"
       >keyboard_arrow_left</mat-icon
     >
     <p class="menu-title">{{ menu[menuOption] }}</p>
-    <mat-icon class="menu-carosel-arrow-container" (click)="arrowClicked(true)"
+    <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(true)"
       >keyboard_arrow_right</mat-icon
     >
   </div>
