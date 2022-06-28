@@ -11,9 +11,14 @@
     <button
       *ngIf="menu[menuOption].url"
       (click)="onButtonClick()"
-      class="carousel-button"
-      mat-button
-      color="primary"
+      class="primary-button"
+    >
+      {{ menu[menuOption].title }}
+    </button>
+    <button
+      *ngIf="menu[menuOption].url"
+      (click)="onButtonClick()"
+      class="secondary-button"
     >
       {{ menu[menuOption].title }}
     </button>

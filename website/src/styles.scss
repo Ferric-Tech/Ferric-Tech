@@ -1,12 +1,41 @@
+// General styling
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Text styling
 p {
   margin: 0;
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
+// Button styling
+button {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  border: none;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 10px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.primary-button,
+.secondary-button {
+  font-size: large;
+  font-weight: bold;
+}
+
+.primary-button {
+  background-color: darkviolet;
+  color: aqua;
+}
+
+.secondary-button {
+  background-color: rgb(47, 0, 255);
+  color: rgb(209, 121, 165);
 }
