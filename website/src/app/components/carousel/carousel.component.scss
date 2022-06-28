@@ -1,0 +1,20 @@
+.menu-carousel-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+.menu-carousel-arrow-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}

@@ -1,1 +1,10 @@
-<p>carousel works!</p>
+<div class="menu-carousel-container">
+  <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(false)"
+    >keyboard_arrow_left</mat-icon
+  >
+  <p class="menu-title">{{ menu[menuOption].title }}</p>
+  <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(true)"
+    >keyboard_arrow_right</mat-icon
+  >
+</div>
+<div class="footer-container"></div>
