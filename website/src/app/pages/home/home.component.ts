@@ -8,9 +8,21 @@ import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 })
 export class HomeComponent implements OnInit {
   menu: CarouselOption[] = [
-    { title: 'Projects' },
-    { title: 'About us' },
-    { title: 'Get in touch' },
+    {
+      title: 'View our Projects',
+      image: '../../../assets/projects-image.jpg',
+      url: '/projects',
+    },
+    {
+      title: 'Learn about us',
+      image: '../../../assets/about-us-image.jpg',
+      url: '/about',
+    },
+    {
+      title: 'Get in touch',
+      image: '../../../assets/contact-us-image.jpg',
+      url: '/contact',
+    },
   ];
 
   constructor() {}
