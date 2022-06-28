@@ -5,3 +5,16 @@
 >
   {{paragraph}}
 </p>
+<div class="button-container">
+  <button
+    *ngFor="let button of config.buttons"
+    (click)="onButtonClick(button)"
+    [ngClass]="
+  button.type === buttonType.PRIMARY
+    ? 'primary-button'
+    : 'secondary-button'
+"
+  >
+    {{ button.text }}
+  </button>
+</div>
