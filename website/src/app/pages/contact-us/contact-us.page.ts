@@ -15,11 +15,17 @@ export class ContactUsPage implements OnInit {
   ngOnInit(): void {
     this.screenConfig = {} as FormScreenConfig;
     this.setScreenTile();
+    this.setIntroParagraph();
     this.setScreenButtons();
   }
 
   private setScreenTile() {
     this.screenConfig.screenTitle = 'Contact us';
+  }
+
+  private setIntroParagraph() {
+    this.screenConfig.introParagraph =
+      'This it the form you fill in if you want to contact us';
   }
 
   private setScreenButtons() {

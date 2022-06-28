@@ -8,6 +8,27 @@
   font-weight: bold;
 }
 
+.screen-paragraph-container {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  text-align: justify;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+}
+
+.from-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .button-container {
   display: flex;
   width: 80%;

@@ -8,6 +8,7 @@ import {
 
 export interface FormScreenConfig {
   screenTitle: string;
+  introParagraph: string;
   form: FormLine[];
   buttons: Button[];
 }
