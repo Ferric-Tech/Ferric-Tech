@@ -1,1 +1,7 @@
-<p>plain-text works!</p>
+<p class="screen-title-container">{{config.screenTitle}}</p>
+<p
+  class="screen-paragraph-container"
+  *ngFor="let paragraph of config.paragraphs"
+>
+  {{paragraph}}
+</p>
