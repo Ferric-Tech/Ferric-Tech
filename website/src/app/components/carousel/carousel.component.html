@@ -8,7 +8,9 @@
       [src]="menu[menuOption].image"
       alt=""
     />
-    <p class="menu-title">{{ menu[menuOption].title }}</p>
+    <button class="carousel-button" mat-button color="primary">
+      {{ menu[menuOption].title }}
+    </button>
   </div>
 
   <mat-icon class="menu-carousel-arrow-container" (click)="arrowClicked(true)"
