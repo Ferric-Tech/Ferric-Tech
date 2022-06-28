@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactUsScreen } from './contact-us.screen';
+import { ContactUsPage } from './contact-us.page';
 
 describe('ContactUsComponent', () => {
-  let component: ContactUsScreen;
-  let fixture: ComponentFixture<ContactUsScreen>;
+  let component: ContactUsPage;
+  let fixture: ComponentFixture<ContactUsPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ContactUsScreen],
+      declarations: [ContactUsPage],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContactUsScreen);
+    fixture = TestBed.createComponent(ContactUsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
