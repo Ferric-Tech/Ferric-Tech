@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
+import { WidgetCallBacksService } from 'src/app/services/widget-call-backs.service';
 
 export interface PlainTextScreenConfig {
   screenTitle: string;
@@ -13,20 +13,14 @@ export interface PlainTextScreenConfig {
   templateUrl: './plain-text.screen.html',
   styleUrls: ['./plain-text.screen.scss'],
 })
-export class PlainTextScreen implements OnInit {
+export class PlainTextScreen {
   @Input() config = {} as PlainTextScreenConfig;
 
   buttonType = ButtonType;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  constructor(private widgetCallBackService: WidgetCallBacksService) {}
 
   onButtonClick(button: Button) {
-    if (button.internalUrl) {
-      this.router.navigate([button.url]);
-    } else {
-      window.open(button.url, '_blank');
-    }
+    this.widgetCallBackService.actionButton(button);
   }
 }

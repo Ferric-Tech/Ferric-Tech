@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { FormItem } from 'src/app/components/form/form.component';
 import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
+import { WidgetCallBacksService } from 'src/app/services/widget-call-backs.service';
 
 export interface FormScreenConfig {
   screenTitle: string;
@@ -15,22 +15,14 @@ export interface FormScreenConfig {
   templateUrl: './form.screen.html',
   styleUrls: ['./form.screen.scss'],
 })
-export class FormScreen implements OnInit {
+export class FormScreen {
   @Input() config = {} as FormScreenConfig;
 
   buttonType = ButtonType;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    console.log(this.config);
-  }
+  constructor(private widgetCallBackService: WidgetCallBacksService) {}
 
   onButtonClick(button: Button) {
-    if (button.internalUrl) {
-      this.router.navigate([button.url]);
-    } else {
-      window.open(button.url, '_blank');
-    }
+    this.widgetCallBackService.actionButton(button);
   }
 }

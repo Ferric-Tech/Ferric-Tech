@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
+import { WidgetCallBacksService } from 'src/app/services/widget-call-backs.service';
 
 export interface CarouselScreenConfig {
   screenTitle: string;
@@ -14,20 +14,14 @@ export interface CarouselScreenConfig {
   templateUrl: './carousel.screen.html',
   styleUrls: ['./carousel.screen.scss'],
 })
-export class CarouselScreen implements OnInit {
+export class CarouselScreen {
   @Input() config = {} as CarouselScreenConfig;
 
   buttonType = ButtonType;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  constructor(private widgetCallBackService: WidgetCallBacksService) {}
 
   onButtonClick(button: Button) {
-    if (button.internalUrl) {
-      this.router.navigate([button.url]);
-    } else {
-      window.open(button.url, '_blank');
-    }
+    this.widgetCallBackService.actionButton(button);
   }
 }
