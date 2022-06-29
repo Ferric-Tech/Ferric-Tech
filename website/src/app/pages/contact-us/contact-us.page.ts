@@ -15,11 +15,19 @@ export class ContactUsPage implements OnInit {
   constructor(private formValidationService: FormValidationService) {}
 
   ngOnInit(): void {
+    this.initiliseSubscriptions();
+    this.configureFormScreen();
+  }
+
+  private initiliseSubscriptions() {
+    // For form validation response
     this.formValidationService._validationReponse.subscribe((reponse) => {
       if (!Object.keys(reponse).length) return;
       console.log(reponse);
     });
+  }
 
+  private configureFormScreen() {
     this.screenConfig = {} as FormScreenConfig;
     this.setScreenTile();
     this.setIntroParagraph();
