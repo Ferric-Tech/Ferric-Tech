@@ -39,6 +39,11 @@ export class ContactUsPage implements OnInit {
       {
         type: FormItemType.SELECT,
         title: 'Topic',
+        options: [
+          { text: 'Project idea', value: 'Project idea' },
+          { text: 'Consultaltion request', value: 'Consultaltion request' },
+          { text: 'Seeking work', value: 'Seeking work' },
+        ],
       },
     ];
   }

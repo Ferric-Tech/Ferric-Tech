@@ -5,9 +5,15 @@ export enum FormItemType {
   SELECT,
 }
 
+export interface SelectOption {
+  text: string;
+  value: any;
+}
+
 export interface FormItem {
   type: FormItemType;
   title: string;
+  options?: SelectOption[];
 }
 
 @Component({

@@ -5,6 +5,11 @@
   </div>
   <div class="select-container" *ngIf="item.type === formItemType.SELECT">
     <p>{{ item.title }}</p>
-    <select name="" id=""></select>
+    <select name="" id="">
+      <option value="none" selected disabled hidden>Select an Option</option>
+      <option *ngFor="let option of item.options" value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
   </div>
 </div>
