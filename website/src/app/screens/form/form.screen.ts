@@ -18,9 +18,18 @@ export interface FormScreenConfig {
 export class FormScreen {
   @Input() config = {} as FormScreenConfig;
 
+  formSubmitted: any;
   buttonType = ButtonType;
 
   constructor(private widgetCallBackService: WidgetCallBacksService) {}
+
+  ngOnInit() {
+    this.widgetCallBackService.formSubmitted.subscribe((sumbitted) => {
+      if (sumbitted) {
+        console.log('Submitted clicked');
+      }
+    });
+  }
 
   onButtonClick(button: Button) {
     this.widgetCallBackService.actionButton(button);
