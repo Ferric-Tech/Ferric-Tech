@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonType } from 'src/app/interfaces/widgets.interface';
+import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import {
   PlainTextScreen,
   PlainTextScreenConfig,
@@ -22,6 +22,7 @@ export class AboutUsPage implements OnInit {
       {
         type: ButtonType.SECONDARY,
         text: 'Back to Home Page',
+        action: ButtonAction.NAVIGATE,
         url: '',
         internalUrl: true,
       },

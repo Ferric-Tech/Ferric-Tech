@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
-import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
+import {
+  Button,
+  ButtonAction,
+  ButtonType,
+} from 'src/app/interfaces/widgets.interface';
 import { CarouselScreenConfig } from 'src/app/screens/carousel/carousel.screen';
 
 @Component({
@@ -32,6 +36,7 @@ export class ProjectsPage implements OnInit {
           {
             text: 'Go to myDayGoal',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: 'https://mydaygoal.firebaseapp.com/',
             internalUrl: false,
           },
@@ -43,6 +48,7 @@ export class ProjectsPage implements OnInit {
           {
             text: 'Go to e-Questrian',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: '',
             internalUrl: false,
           },
@@ -55,6 +61,7 @@ export class ProjectsPage implements OnInit {
           {
             text: 'Go to Negocio',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: 'https://negocio-3df71.firebaseapp.com/',
             internalUrl: false,
           },
@@ -68,6 +75,7 @@ export class ProjectsPage implements OnInit {
       {
         type: ButtonType.SECONDARY,
         text: 'Back to Home Page',
+        action: ButtonAction.NAVIGATE,
         url: '',
         internalUrl: true,
       },

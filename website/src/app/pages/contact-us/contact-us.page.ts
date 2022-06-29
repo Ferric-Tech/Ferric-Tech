@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormItemType } from 'src/app/components/form/form.component';
-import { ButtonType } from 'src/app/interfaces/widgets.interface';
+import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { FormScreenConfig } from 'src/app/screens/form/form.screen';
 
 @Component({
@@ -70,12 +70,12 @@ export class ContactUsPage implements OnInit {
       {
         type: ButtonType.PRIMARY,
         text: 'Submit form',
-        url: '',
-        internalUrl: true,
+        action: ButtonAction.SUMBIT,
       },
       {
         type: ButtonType.SECONDARY,
         text: 'Back to Home Page',
+        action: ButtonAction.NAVIGATE,
         url: '',
         internalUrl: true,
       },

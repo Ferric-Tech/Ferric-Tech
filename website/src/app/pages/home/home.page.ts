@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
-import { ButtonType } from 'src/app/interfaces/widgets.interface';
+import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { CarouselScreenConfig } from 'src/app/screens/carousel/carousel.screen';
 
 @Component({
@@ -31,6 +31,7 @@ export class HomePage implements OnInit {
           {
             text: 'View our Projects',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: '/projects',
             internalUrl: true,
           },
@@ -43,6 +44,7 @@ export class HomePage implements OnInit {
           {
             text: 'Learn about us',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: '/about',
             internalUrl: true,
           },
@@ -55,6 +57,7 @@ export class HomePage implements OnInit {
           {
             text: 'Get in touch',
             type: ButtonType.PRIMARY,
+            action: ButtonAction.NAVIGATE,
             url: '/contact',
             internalUrl: true,
           },
