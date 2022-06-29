@@ -33,7 +33,7 @@ export class ContactUsPage implements OnInit {
   private setForm() {
     this.screenConfig.form = [
       {
-        type: FormItemType.INPUT,
+        type: FormItemType.TEXT_SHORT,
         title: 'Name',
       },
       {
@@ -44,6 +44,10 @@ export class ContactUsPage implements OnInit {
           { text: 'Consultaltion request', value: 'Consultaltion request' },
           { text: 'Seeking work', value: 'Seeking work' },
         ],
+      },
+      {
+        type: FormItemType.TEXT_LONG,
+        title: 'Comment / Additional info',
       },
     ];
   }

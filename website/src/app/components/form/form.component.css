@@ -1,12 +1,14 @@
 .form-container {
   width: 80%;
   margin: auto;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .input-container p,
-.select-container p {
-  margin: 5px;
+.select-container p,
+.long-input-container p {
+  margin: 7px 5px 2px 5px;
+  font-weight: bold;
 }
 
 input {
@@ -17,5 +19,9 @@ input {
 select {
   width: 103%;
   height: 25px;
+}
+
+textarea {
+  width: 100%;
 }
 /*# sourceMappingURL=form.component.css.map */

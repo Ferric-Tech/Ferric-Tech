@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 export enum FormItemType {
-  INPUT,
+  TEXT_SHORT,
+  TEXT_LONG,
   SELECT,
 }
 
