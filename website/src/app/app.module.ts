@@ -24,6 +24,7 @@ import { CarouselScreen } from './screens/carousel/carousel.screen';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FormScreen } from './screens/form/form.screen';
 import { FormComponent } from './components/form/form.component';
+import { FormValidationWarningModal } from './modals/form-validation-warning/form-validation-warning.modal';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FormComponent } from './components/form/form.component';
     CarouselScreen,
     FormScreen,
     FormComponent,
+    FormValidationWarningModal,
   ],
   imports: [
     BrowserModule,
