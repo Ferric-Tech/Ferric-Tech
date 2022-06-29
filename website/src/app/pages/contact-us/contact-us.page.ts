@@ -35,21 +35,25 @@ export class ContactUsPage implements OnInit {
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Name',
+        fieldName: 'name',
         required: true,
       },
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Email',
+        fieldName: 'email',
         required: true,
       },
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Contact number',
+        fieldName: 'contact-number',
         required: false,
       },
       {
         type: FormItemType.SELECT,
         title: 'Topic',
+        fieldName: 'topic',
         options: [
           { text: 'Project idea', value: 'Project idea' },
           { text: 'Consultaltion request', value: 'Consultaltion request' },
@@ -60,6 +64,7 @@ export class ContactUsPage implements OnInit {
       {
         type: FormItemType.FREE_TEXT_LONG,
         title: 'Comment / Additional info',
+        fieldName: 'comment',
         required: false,
       },
     ];
