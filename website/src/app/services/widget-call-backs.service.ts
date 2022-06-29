@@ -10,6 +10,9 @@ export class WidgetCallBacksService {
   private formSubmit = new BehaviorSubject<boolean>(false);
   formSubmitted = this.formSubmit.asObservable();
 
+  private closeClicked = new BehaviorSubject<boolean>(false);
+  _closeClicked = this.closeClicked.asObservable();
+
   constructor(private router: Router) {}
 
   actionButton(button: Button) {
@@ -22,6 +25,10 @@ export class WidgetCallBacksService {
       }
       case ButtonAction.SUMBIT: {
         this.formSubmit.next(true);
+        return;
+      }
+      case ButtonAction.CLOSE: {
+        this.closeClicked.next(true);
         return;
       }
     }

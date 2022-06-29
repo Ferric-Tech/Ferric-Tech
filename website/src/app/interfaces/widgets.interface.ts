@@ -6,6 +6,7 @@ export enum ButtonType {
 export enum ButtonAction {
   NAVIGATE,
   SUMBIT,
+  CLOSE,
 }
 
 export interface Button {

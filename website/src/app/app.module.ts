@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 // Components - Pages
 import { HomePage } from './pages/home/home.page';
@@ -47,6 +48,7 @@ import { FormValidationWarningModal } from './modals/form-validation-warning/for
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

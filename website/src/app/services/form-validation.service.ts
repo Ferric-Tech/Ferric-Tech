@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { FormItem } from '../components/form/form.component';
 
-export enum ValidationErrorType {
+export enum FormValidationErrorType {
   REQUIRED,
 }
 
-export interface ValidationError {
+export interface FormValidationError {
   fieldName: string;
-  errorType: ValidationErrorType;
+  errorType: FormValidationErrorType;
 }
 
 export interface FormValidationResponse {
   isValid: boolean;
-  validationErrors: ValidationError[];
+  validationErrors: FormValidationError[];
 }
 
 @Injectable({
@@ -46,7 +46,7 @@ export class FormValidationService {
             response.isValid = false;
             response.validationErrors.push({
               fieldName: form[i].title,
-              errorType: ValidationErrorType.REQUIRED,
+              errorType: FormValidationErrorType.REQUIRED,
             });
             break;
           }

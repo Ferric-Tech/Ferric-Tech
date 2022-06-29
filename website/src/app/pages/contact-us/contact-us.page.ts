@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 import { FormItemType } from 'src/app/components/form/form.component';
 import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { FormScreenConfig } from 'src/app/screens/form/form.screen';
@@ -6,7 +7,11 @@ import {
   PlainTextScreen,
   PlainTextScreenConfig,
 } from 'src/app/screens/plain-text/plain-text.screen';
-import { FormValidationService } from 'src/app/services/form-validation.service';
+import {
+  FormValidationError,
+  FormValidationService,
+} from 'src/app/services/form-validation.service';
+import { WidgetCallBacksService } from 'src/app/services/widget-call-backs.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -17,8 +22,13 @@ export class ContactUsPage implements OnInit {
   formScreenConfig = {} as FormScreenConfig;
   celebrationScreenConfig = {} as PlainTextScreenConfig;
   validFormSubmitted = false;
+  submittionError = false;
+  validationErrors: FormValidationError[] = [];
 
-  constructor(private formValidationService: FormValidationService) {}
+  constructor(
+    private formValidationService: FormValidationService,
+    private widgetCallBackService: WidgetCallBacksService
+  ) {}
 
   ngOnInit(): void {
     this.initiliseSubscriptions();
@@ -31,8 +41,12 @@ export class ContactUsPage implements OnInit {
       if (!Object.keys(reponse).length) return;
       reponse.isValid
         ? this.configureCelebrationScreen()
-        : this.configureValidationWarning();
+        : this.configureValidationWarning(reponse.validationErrors);
     });
+
+    this.widgetCallBackService._closeClicked.subscribe((closed) =>
+      closed ? (this.submittionError = false) : null
+    );
   }
 
   private configureFormScreen() {
@@ -118,5 +132,8 @@ export class ContactUsPage implements OnInit {
     this.validFormSubmitted = true;
   }
 
-  private configureValidationWarning() {}
+  private configureValidationWarning(validationErrors: FormValidationError[]) {
+    this.validationErrors = validationErrors;
+    this.submittionError = true;
+  }
 }
