@@ -23,16 +23,9 @@ export class FormScreen {
   formSubmitted: any;
   buttonType = ButtonType;
 
-  constructor(
-    private widgetCallBackService: WidgetCallBacksService,
-    private formValidationService: FormValidationService
-  ) {}
+  constructor(private widgetCallBackService: WidgetCallBacksService) {}
 
   onButtonClick(button: Button) {
     this.widgetCallBackService.actionButton(button);
-  }
-
-  private validateForm() {
-    this.formValidationService.validate(this.config);
   }
 }

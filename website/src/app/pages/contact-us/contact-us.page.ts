@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormItemType } from 'src/app/components/form/form.component';
 import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { FormScreenConfig } from 'src/app/screens/form/form.screen';
+import { FormValidationService } from 'src/app/services/form-validation.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -11,9 +12,14 @@ import { FormScreenConfig } from 'src/app/screens/form/form.screen';
 export class ContactUsPage implements OnInit {
   screenConfig = {} as FormScreenConfig;
 
-  constructor() {}
+  constructor(private formValidationService: FormValidationService) {}
 
   ngOnInit(): void {
+    this.formValidationService._validationReponse.subscribe((reponse) => {
+      if (!Object.keys(reponse).length) return;
+      console.log(reponse);
+    });
+
     this.screenConfig = {} as FormScreenConfig;
     this.setScreenTile();
     this.setIntroParagraph();
