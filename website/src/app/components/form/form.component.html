@@ -1,12 +1,15 @@
 <div class="form-container">
   <div *ngFor="let item of config">
-    <div class="input-container" *ngIf="item.type === formItemType.TEXT_SHORT">
+    <div
+      class="input-container"
+      *ngIf="item.type === formItemType.FREE_TEXT_SHORT"
+    >
       <p>{{ item.title }}</p>
       <input type="text" />
     </div>
     <div
       class="long-input-container"
-      *ngIf="item.type === formItemType.TEXT_LONG"
+      *ngIf="item.type === formItemType.FREE_TEXT_LONG"
     >
       <p>{{ item.title }}</p>
       <textarea id="" name="" rows="4" cols="35"> </textarea>
