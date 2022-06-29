@@ -15,6 +15,7 @@ export interface FormItem {
   type: FormItemType;
   title: string;
   options?: SelectOption[];
+  required: boolean;
 }
 
 @Component({

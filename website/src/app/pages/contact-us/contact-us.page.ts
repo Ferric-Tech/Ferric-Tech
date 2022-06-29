@@ -35,14 +35,17 @@ export class ContactUsPage implements OnInit {
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Name',
+        required: true,
       },
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Email',
+        required: true,
       },
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Contact number',
+        required: false,
       },
       {
         type: FormItemType.SELECT,
@@ -52,16 +55,24 @@ export class ContactUsPage implements OnInit {
           { text: 'Consultaltion request', value: 'Consultaltion request' },
           { text: 'Seeking work', value: 'Seeking work' },
         ],
+        required: true,
       },
       {
         type: FormItemType.FREE_TEXT_LONG,
         title: 'Comment / Additional info',
+        required: false,
       },
     ];
   }
 
   private setScreenButtons() {
     this.screenConfig.buttons = [
+      {
+        type: ButtonType.PRIMARY,
+        text: 'Submit form',
+        url: '',
+        internalUrl: true,
+      },
       {
         type: ButtonType.SECONDARY,
         text: 'Back to Home Page',
