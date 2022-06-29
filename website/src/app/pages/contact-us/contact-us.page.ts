@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormItemType } from 'src/app/components/form/form.component';
 import { ButtonAction, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { FormScreenConfig } from 'src/app/screens/form/form.screen';
+import {
+  PlainTextScreen,
+  PlainTextScreenConfig,
+} from 'src/app/screens/plain-text/plain-text.screen';
 import { FormValidationService } from 'src/app/services/form-validation.service';
 
 @Component({
@@ -10,7 +14,9 @@ import { FormValidationService } from 'src/app/services/form-validation.service'
   styleUrls: ['./contact-us.page.scss'],
 })
 export class ContactUsPage implements OnInit {
-  screenConfig = {} as FormScreenConfig;
+  formScreenConfig = {} as FormScreenConfig;
+  celebrationScreenConfig = {} as PlainTextScreenConfig;
+  validFormSubmitted = false;
 
   constructor(private formValidationService: FormValidationService) {}
 
@@ -23,12 +29,14 @@ export class ContactUsPage implements OnInit {
     // For form validation response
     this.formValidationService._validationReponse.subscribe((reponse) => {
       if (!Object.keys(reponse).length) return;
-      console.log(reponse);
+      reponse.isValid
+        ? this.configureCelebrationScreen()
+        : this.configureValidationWarning();
     });
   }
 
   private configureFormScreen() {
-    this.screenConfig = {} as FormScreenConfig;
+    this.formScreenConfig = {} as FormScreenConfig;
     this.setScreenTile();
     this.setIntroParagraph();
     this.setForm();
@@ -36,16 +44,16 @@ export class ContactUsPage implements OnInit {
   }
 
   private setScreenTile() {
-    this.screenConfig.screenTitle = 'Contact us';
+    this.formScreenConfig.screenTitle = 'Contact us';
   }
 
   private setIntroParagraph() {
-    this.screenConfig.introParagraph =
+    this.formScreenConfig.introParagraph =
       'This it the form you fill in if you want to contact us';
   }
 
   private setForm() {
-    this.screenConfig.form = [
+    this.formScreenConfig.form = [
       {
         type: FormItemType.FREE_TEXT_SHORT,
         title: 'Name',
@@ -85,7 +93,7 @@ export class ContactUsPage implements OnInit {
   }
 
   private setScreenButtons() {
-    this.screenConfig.buttons = [
+    this.formScreenConfig.buttons = [
       {
         type: ButtonType.PRIMARY,
         text: 'Submit form',
@@ -100,4 +108,15 @@ export class ContactUsPage implements OnInit {
       },
     ];
   }
+
+  private configureCelebrationScreen() {
+    this.celebrationScreenConfig.screenTitle = 'Form submitted';
+    this.celebrationScreenConfig.paragraphs = [
+      'Thank you for subitting your contact request - we will be in touch shortly',
+    ];
+    this.celebrationScreenConfig.buttons = [this.formScreenConfig.buttons[1]];
+    this.validFormSubmitted = true;
+  }
+
+  private configureValidationWarning() {}
 }

@@ -1,1 +1,8 @@
-<app-form-screen [config]="screenConfig"></app-form-screen>
+<app-form-screen
+  *ngIf="!validFormSubmitted"
+  [config]="formScreenConfig"
+></app-form-screen>
+<app-plain-text-screen
+  *ngIf="validFormSubmitted"
+  [config]="celebrationScreenConfig"
+></app-plain-text-screen>
