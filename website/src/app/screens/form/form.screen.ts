@@ -1,15 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  Button,
-  ButtonType,
-  FormLine,
-} from 'src/app/interfaces/widgets.interface';
+import { FormItem } from 'src/app/components/form/form.component';
+import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
 
 export interface FormScreenConfig {
   screenTitle: string;
   introParagraph: string;
-  form: FormLine[];
+  form: FormItem[];
   buttons: Button[];
 }
 
@@ -25,7 +22,9 @@ export class FormScreen implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.config);
+  }
 
   onButtonClick(button: Button) {
     if (button.internalUrl) {

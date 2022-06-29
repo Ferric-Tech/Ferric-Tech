@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+export enum FormItemType {
+  INPUT,
+  SELECT,
+}
+
+export interface FormItem {
+  type: FormItemType;
+  title: string;
+}
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-form-component',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
+  @Input() config: FormItem[] | undefined;
 
-  constructor() { }
+  formItemType = FormItemType;
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

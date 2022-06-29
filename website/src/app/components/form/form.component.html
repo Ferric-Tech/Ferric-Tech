@@ -1,1 +1,10 @@
-<p>form works!</p>
+<div class="form-container" *ngFor="let item of config">
+  <div class="input-container" *ngIf="item.type === formItemType.INPUT">
+    <p>{{ item.title }}</p>
+    <input type="text" />
+  </div>
+  <div class="select-container" *ngIf="item.type === formItemType.SELECT">
+    <p>{{ item.title }}</p>
+    <select name="" id=""></select>
+  </div>
+</div>

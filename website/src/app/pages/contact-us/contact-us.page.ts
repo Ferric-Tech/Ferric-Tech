@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormItemType } from 'src/app/components/form/form.component';
 import { ButtonType } from 'src/app/interfaces/widgets.interface';
 import { FormScreenConfig } from 'src/app/screens/form/form.screen';
 
@@ -16,6 +17,7 @@ export class ContactUsPage implements OnInit {
     this.screenConfig = {} as FormScreenConfig;
     this.setScreenTile();
     this.setIntroParagraph();
+    this.setForm();
     this.setScreenButtons();
   }
 
@@ -26,6 +28,19 @@ export class ContactUsPage implements OnInit {
   private setIntroParagraph() {
     this.screenConfig.introParagraph =
       'This it the form you fill in if you want to contact us';
+  }
+
+  private setForm() {
+    this.screenConfig.form = [
+      {
+        type: FormItemType.INPUT,
+        title: 'Name',
+      },
+      {
+        type: FormItemType.SELECT,
+        title: 'Topic',
+      },
+    ];
   }
 
   private setScreenButtons() {
