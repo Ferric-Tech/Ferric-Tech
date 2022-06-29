@@ -44,9 +44,9 @@ export class ContactUsPage implements OnInit {
         : this.configureValidationWarning(reponse.validationErrors);
     });
 
-    this.widgetCallBackService._closeClicked.subscribe((closed) =>
-      closed ? (this.submittionError = false) : null
-    );
+    this.widgetCallBackService._closeClicked.subscribe((closed) => {
+      closed ? (this.submittionError = false) : null;
+    });
   }
 
   private configureFormScreen() {
