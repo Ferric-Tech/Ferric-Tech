@@ -1,15 +1,21 @@
 <div class="menu-carousel-container">
-  <mat-icon class="menu-carousel-arrow-container" (click)="onArrowClick(false)"
-    >keyboard_arrow_left</mat-icon
-  >
-  <div class="carousel-content-container">
+  <div class="carousel-arrow-container">
+    <mat-icon class="carousel-arrow" (click)="onArrowClick(false)"
+      >keyboard_arrow_left</mat-icon
+    >
+  </div>
+
+  <div *ngFor="let index of numberOfTiles" class="carousel-content-container">
     <img
-      (click)="onButtonClick(options[menuOption].buttons[0])"
+      (click)="onButtonClick(options[menuOption + index - 1].buttons[0])"
       class="carousel-image-container"
-      [src]="options[menuOption].image"
+      [src]="options[menuOption + index - 1].image"
       alt=""
     />
-    <div *ngFor="let button of options[menuOption].buttons">
+    <div
+      class="carousel-button-container"
+      *ngFor="let button of options[menuOption + index - 1].buttons"
+    >
       <button
         *ngIf="button.url || button.internalUrl"
         (click)="onButtonClick(button)"
@@ -24,7 +30,9 @@
     </div>
   </div>
 
-  <mat-icon class="menu-carousel-arrow-container" (click)="onArrowClick(true)"
-    >keyboard_arrow_right</mat-icon
-  >
+  <div class="carousel-arrow-container">
+    <mat-icon class="carousel-arrow" (click)="onArrowClick(true)"
+      >keyboard_arrow_right</mat-icon
+    >
+  </div>
 </div>

@@ -1,4 +1,6 @@
-<p class="screen-title-container">{{config.screenTitle}}</p>
+<p *ngIf="config.screenTitle" class="screen-title-container">
+  {{config.screenTitle}}
+</p>
 <app-carousel
   class="menu-carousel-container"
   [options]="config.carouselOptions"
