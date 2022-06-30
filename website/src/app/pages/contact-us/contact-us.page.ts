@@ -44,6 +44,7 @@ export class ContactUsPage implements OnInit {
         : this.configureValidationWarning(reponse.validationErrors);
     });
 
+    // For modal management
     this.widgetCallBackService._closeClicked.subscribe((closed) => {
       closed ? (this.submittionError = false) : null;
     });
