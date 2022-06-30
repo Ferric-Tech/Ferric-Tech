@@ -2,17 +2,15 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
   background-color: aqua;
 }
 
 .ferric-tech-logo-container {
   display: flex;
   height: 15vh;
-  margin-top: 10vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 7vh auto;
   width: 80%;
+  max-width: 400px;
   font-weight: bold;
   font-size: xx-large;
   justify-content: center;
@@ -20,5 +18,5 @@
 
 .footer-container {
   display: flex;
-  height: 20vh;
+  height: 28vh;
 }
