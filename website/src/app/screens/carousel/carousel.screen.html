@@ -4,10 +4,12 @@
 <app-carousel
   class="menu-carousel-container"
   [options]="config.carouselOptions"
+  (maxButtonWidth)="setButtonWidth($event)"
 ></app-carousel>
 <div class="button-container">
   <button
     *ngFor="let button of config.buttons"
+    [ngStyle]="{width: buttonWidth}"
     (click)="onButtonClick(button)"
     [ngClass]="
   button.type === buttonType.PRIMARY

@@ -17,6 +17,7 @@
       *ngFor="let button of options[index].buttons"
     >
       <button
+        attr.id="{{ 'button-' + index }}"
         *ngIf="button.url || button.internalUrl"
         (click)="onButtonClick(button)"
         [ngClass]="

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CarouselOption } from 'src/app/components/carousel/carousel.component';
 import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
 import { WidgetCallBacksService } from 'src/app/services/widget-call-backs.service';
@@ -18,10 +18,19 @@ export class CarouselScreen {
   @Input() config = {} as CarouselScreenConfig;
 
   buttonType = ButtonType;
+  buttonWidth: string | undefined;
 
-  constructor(private widgetCallBackService: WidgetCallBacksService) {}
+  constructor(
+    private widgetCallBackService: WidgetCallBacksService,
+    private cd: ChangeDetectorRef
+  ) {}
 
   onButtonClick(button: Button) {
     this.widgetCallBackService.actionButton(button);
+  }
+
+  setButtonWidth(width: number) {
+    this.buttonWidth = width ? width + 'px' : '0px';
+    this.cd.detectChanges();
   }
 }

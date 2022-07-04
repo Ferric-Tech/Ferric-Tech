@@ -1,6 +1,7 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Button, ButtonType } from 'src/app/interfaces/widgets.interface';
+import { EventEmitter } from '@angular/core';
 
 export interface CarouselOption {
   title?: string;
@@ -15,9 +16,12 @@ export interface CarouselOption {
 })
 export class CarouselComponent implements OnInit {
   @Input() options = [] as CarouselOption[];
-  @HostListener('window:resize', ['$event'])
+  @Output() maxButtonWidth: EventEmitter<number> = new EventEmitter();
+
+  @HostListener('window:resize', ['$event.target'])
   onResize() {
     this.setNumberOfTileDisplayNumber();
+    this.maxButtonWidth.emit(document.getElementById('button-0')?.offsetWidth);
   }
 
   buttonType = ButtonType;
@@ -30,6 +34,10 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.setNumberOfTileDisplayNumber();
+  }
+
+  ngAfterViewInit() {
+    this.maxButtonWidth.emit(document.getElementById('button-0')?.offsetWidth);
   }
 
   onArrowClick(goForward: boolean) {
