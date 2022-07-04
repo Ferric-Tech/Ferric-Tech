@@ -67,5 +67,13 @@ app-form-component {
           flex-direction: column;
   width: 80%;
   margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  max-width: 300px;
 }
 /*# sourceMappingURL=form.screen.css.map */

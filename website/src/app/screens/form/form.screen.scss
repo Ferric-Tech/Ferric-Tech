@@ -39,4 +39,10 @@ app-form-component {
   flex-direction: column;
   width: 80%;
   margin: auto;
+  align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  max-width: 300px;
 }
