@@ -5,16 +5,16 @@
     >
   </div>
 
-  <div *ngFor="let index of numberOfTiles" class="carousel-content-container">
+  <div *ngFor="let index of tilesInFocus" class="carousel-content-container">
     <img
-      (click)="onButtonClick(options[menuOption + index - 1].buttons[0])"
+      (click)="onButtonClick(options[index].buttons[0])"
       class="carousel-image-container"
-      [src]="options[menuOption + index - 1].image"
+      [src]="options[index].image"
       alt=""
     />
     <div
       class="carousel-button-container"
-      *ngFor="let button of options[menuOption + index - 1].buttons"
+      *ngFor="let button of options[index].buttons"
     >
       <button
         *ngIf="button.url || button.internalUrl"

@@ -17,48 +17,57 @@ export class CarouselComponent implements OnInit {
   @Input() options = [] as CarouselOption[];
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.setNumberOfTiles();
+    this.setNumberOfTileDisplayNumber();
   }
 
   buttonType = ButtonType;
-  menuOption = 0;
-  numberOfTiles: number[] = [];
+  numberOfDisplayTiles = 0;
+  firstDisplayTileNumber = 0;
+  tilesInFocus: number[] = [];
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.setNumberOfTiles();
+    this.setNumberOfTileDisplayNumber();
+    this.setCarouselOptionsArray(this.firstDisplayTileNumber);
   }
 
-  private setNumberOfTiles() {
-    if (window.innerWidth < 900) {
-      this.setImageIndexArray(1);
-      return;
-    }
-    if (window.innerWidth < 1500) {
-      this.setImageIndexArray(3);
-      return;
-    }
-    this.setImageIndexArray(5);
+  private setNumberOfTileDisplayNumber() {
+    this.numberOfDisplayTiles =
+      window.innerWidth < 900 ? 1 : window.innerWidth < 1500 ? 3 : 5;
   }
 
-  private setImageIndexArray(n: number) {
-    this.numberOfTiles = [];
-    for (let i = 1; i < Math.min(n, this.options.length) + 1; i++) {
-      this.numberOfTiles.push(i);
+  private setCarouselOptionsArray(n: number) {
+    this.tilesInFocus = [];
+    for (
+      let i = this.firstDisplayTileNumber;
+      i < this.firstDisplayTileNumber + this.numberOfDisplayTiles;
+      i++
+    ) {
+      let numberToAdd = 0;
+      if (i > this.numberOfDisplayTiles - 1) {
+        numberToAdd = i - this.numberOfDisplayTiles;
+      } else {
+        numberToAdd = i;
+      }
+      this.tilesInFocus.push(numberToAdd);
     }
+    console.log(this.tilesInFocus);
   }
 
   onArrowClick(goForward: boolean) {
-    if (goForward && this.menuOption + 1 === this.options.length) {
-      this.menuOption = 0;
-      return;
+    this.firstDisplayTileNumber = goForward
+      ? this.firstDisplayTileNumber + 1
+      : this.firstDisplayTileNumber - 1;
+
+    if (goForward && this.firstDisplayTileNumber === this.options.length) {
+      this.firstDisplayTileNumber = 0;
     }
-    if (!goForward && this.menuOption === 0) {
-      this.menuOption = this.options.length - 1;
-      return;
+    if (!goForward && this.firstDisplayTileNumber < 0) {
+      this.firstDisplayTileNumber = this.options.length - 1;
     }
-    this.menuOption = goForward ? this.menuOption + 1 : this.menuOption - 1;
+
+    this.setCarouselOptionsArray(this.firstDisplayTileNumber);
   }
 
   onButtonClick(button: Button) {
