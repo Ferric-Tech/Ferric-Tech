@@ -4,8 +4,11 @@
   top: 0;
   background-color: rgba(128, 255, 212, 0.5);
   z-index: 2;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
 }
@@ -21,6 +24,9 @@
   align-items: center;
   color: black;
   max-width: 450px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 
 .modal-title-container,

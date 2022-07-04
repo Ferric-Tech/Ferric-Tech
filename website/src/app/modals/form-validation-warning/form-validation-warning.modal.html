@@ -1,5 +1,9 @@
 <div class="modal-screen-container">
-  <mat-card class="modal-card">
+  <mat-card
+    id="modal"
+    [ngStyle]="{'margin-top': marginTop,'margin-left': marginLeft}"
+    class="modal-card"
+  >
     <div class="modal-title-container">
       <p class="modal-title">Form Validation Errors</p>
     </div>

@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 import {
   Button,
@@ -28,8 +35,13 @@ export class FormValidationWarningModal implements OnInit {
   listOfErrors: ErrorExplination[] = [];
   buttons: Button[] = [];
   buttonType = ButtonType;
+  marginTop = '';
+  marginLeft = '';
 
-  constructor(private widgetCallBackService: WidgetCallBacksService) {}
+  constructor(
+    private widgetCallBackService: WidgetCallBacksService,
+    private cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.setButtons();
@@ -47,6 +59,14 @@ export class FormValidationWarningModal implements OnInit {
         errorFields: this.fieldsRequired,
       });
     }
+  }
+
+  ngAfterViewInit() {
+    let cardH = document.getElementById('modal')!.offsetHeight;
+    let cardW = document.getElementById('modal')!.offsetWidth;
+    this.marginTop = '-' + cardH / 2 + 'px';
+    this.marginLeft = '-' + cardW / 2 + 'px';
+    this.cd.detectChanges();
   }
 
   private setButtons() {
