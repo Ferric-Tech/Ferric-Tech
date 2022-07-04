@@ -58,7 +58,7 @@ export class CarouselComponent implements OnInit {
       this.firstDisplayTileNumber + this.numberOfDisplayTiles;
     for (let i = this.firstDisplayTileNumber; i < lastDisplayTileNumber; i++) {
       this.tilesInFocus.push(
-        this.numberOfDisplayTiles - 1 ? i - this.numberOfDisplayTiles : i
+        i > this.numberOfDisplayTiles - 1 ? i - this.numberOfDisplayTiles : i
       );
     }
   }
