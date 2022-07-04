@@ -21,15 +21,30 @@ export class CarouselComponent implements OnInit {
   }
 
   buttonType = ButtonType;
-  numberOfDisplayTiles = 0;
-  firstDisplayTileNumber = 0;
   tilesInFocus: number[] = [];
+
+  private numberOfDisplayTiles = 0;
+  private firstDisplayTileNumber = 0;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.setNumberOfTileDisplayNumber();
-    this.setCarouselOptionsArray(this.firstDisplayTileNumber);
+    this.setCarouselOptionsArray();
+  }
+
+  onArrowClick(goForward: boolean) {
+    this.setFirstDisplayTileNumber(goForward);
+    this.setCarouselOptionsArray();
+  }
+
+  onButtonClick(button: Button) {
+    if (!button.url && !button.internalUrl) return;
+    if (button.internalUrl) {
+      this.router.navigate([button.url]);
+    } else {
+      window.open(button.url, '_blank');
+    }
   }
 
   private setNumberOfTileDisplayNumber() {
@@ -37,25 +52,18 @@ export class CarouselComponent implements OnInit {
       window.innerWidth < 900 ? 1 : window.innerWidth < 1500 ? 3 : 5;
   }
 
-  private setCarouselOptionsArray(n: number) {
+  private setCarouselOptionsArray() {
     this.tilesInFocus = [];
-    for (
-      let i = this.firstDisplayTileNumber;
-      i < this.firstDisplayTileNumber + this.numberOfDisplayTiles;
-      i++
-    ) {
-      let numberToAdd = 0;
-      if (i > this.numberOfDisplayTiles - 1) {
-        numberToAdd = i - this.numberOfDisplayTiles;
-      } else {
-        numberToAdd = i;
-      }
-      this.tilesInFocus.push(numberToAdd);
+    let lastDisplayTileNumber =
+      this.firstDisplayTileNumber + this.numberOfDisplayTiles;
+    for (let i = this.firstDisplayTileNumber; i < lastDisplayTileNumber; i++) {
+      this.tilesInFocus.push(
+        this.numberOfDisplayTiles - 1 ? i - this.numberOfDisplayTiles : i
+      );
     }
-    console.log(this.tilesInFocus);
   }
 
-  onArrowClick(goForward: boolean) {
+  private setFirstDisplayTileNumber(goForward: boolean) {
     this.firstDisplayTileNumber = goForward
       ? this.firstDisplayTileNumber + 1
       : this.firstDisplayTileNumber - 1;
@@ -65,17 +73,6 @@ export class CarouselComponent implements OnInit {
     }
     if (!goForward && this.firstDisplayTileNumber < 0) {
       this.firstDisplayTileNumber = this.options.length - 1;
-    }
-
-    this.setCarouselOptionsArray(this.firstDisplayTileNumber);
-  }
-
-  onButtonClick(button: Button) {
-    if (!button.url && !button.internalUrl) return;
-    if (button.internalUrl) {
-      this.router.navigate([button.url]);
-    } else {
-      window.open(button.url, '_blank');
     }
   }
 }
