@@ -30,7 +30,6 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.setNumberOfTileDisplayNumber();
-    this.setCarouselOptionsArray();
   }
 
   onArrowClick(goForward: boolean) {
@@ -50,6 +49,7 @@ export class CarouselComponent implements OnInit {
   private setNumberOfTileDisplayNumber() {
     this.numberOfDisplayTiles =
       window.innerWidth < 900 ? 1 : window.innerWidth < 1500 ? 3 : 5;
+    this.setCarouselOptionsArray();
   }
 
   private setCarouselOptionsArray() {
