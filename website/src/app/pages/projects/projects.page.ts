@@ -49,7 +49,7 @@ export class ProjectsPage implements OnInit {
             text: 'Go to e-Questrian',
             type: ButtonType.PRIMARY,
             action: ButtonAction.NAVIGATE,
-            url: '',
+            url: 'https://e-questrian.web.app/home',
             internalUrl: false,
           },
         ],
