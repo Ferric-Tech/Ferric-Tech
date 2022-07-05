@@ -63,24 +63,33 @@ export class CarouselComponent implements OnInit {
   private setCarouselOptionsArray() {
     this.tilesInFocus = [];
     let lastDisplayTileNumber =
-      this.firstDisplayTileNumber + this.numberOfDisplayTiles;
-    for (let i = this.firstDisplayTileNumber; i < lastDisplayTileNumber; i++) {
+      this.firstDisplayTileNumber + this.numberOfDisplayTiles - 1;
+    for (
+      let i = this.firstDisplayTileNumber;
+      i < lastDisplayTileNumber + 1;
+      i++
+    ) {
       this.tilesInFocus.push(
-        i > this.numberOfDisplayTiles - 1 ? i - this.numberOfDisplayTiles : i
+        i < this.options.length ? i : i - this.numberOfDisplayTiles
       );
     }
   }
 
   private setFirstDisplayTileNumber(goForward: boolean) {
+    console.log(this.firstDisplayTileNumber);
     this.firstDisplayTileNumber = goForward
       ? this.firstDisplayTileNumber + 1
       : this.firstDisplayTileNumber - 1;
+    console.log(this.firstDisplayTileNumber);
 
     if (goForward && this.firstDisplayTileNumber === this.options.length) {
       this.firstDisplayTileNumber = 0;
     }
+    console.log(this.firstDisplayTileNumber);
+
     if (!goForward && this.firstDisplayTileNumber < 0) {
       this.firstDisplayTileNumber = this.options.length - 1;
     }
+    console.log(this.firstDisplayTileNumber);
   }
 }
